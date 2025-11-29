@@ -1,162 +1,221 @@
-# 🎬 4-Panel Comic Script Generator - Setup Guide
+🎬 Mini Movie Generator - Complete Setup Guide
+==============================================
 
-## Quick Start (3 Steps!)
+📋 Project Overview
+-------------------
+
+**Mini Movie Generator** creates 4-panel comic strips with both AI-generated story scripts AND matching images from a single user idea.
+
+**Example**:
+
+*   **Input**: "A superhero who dresses like an ant"
+    
+*   **Output**: 4-panel comic with text descriptions + 4 AI-generated images
+    
+
+⚡ Quick Start (3 Steps!)
+------------------------
 
 ### Step 1: Install Dependencies
-```bash
-pip install streamlit transformers torch
-```
+
+Plain
+` pip install streamlit transformers torch diffusers accelerate safetensors pillow   `
 
 Or use the requirements file:
-```bash
-pip install -r requirements.txt
-```
+
+Plain 
+`pip install -r requirements.txt`
 
 ### Step 2: Save the Code
-Save the main code as `comic_generator.py`
+
+Save the main code as comic\_with\_images.py
 
 ### Step 3: Run the App
-```bash
-streamlit run comic_generator.py
-```
 
-The app will open in your browser at `http://localhost:8501`
+Plain 
+`streamlit run comic_with_images.py`
 
----
+The app will open in your browser at http://localhost:8501
 
-## 📦 What Gets Downloaded
-- **GPT-2 model** (~500MB) - downloads automatically on first run
-- Takes 1-2 minutes first time, then cached locally
+📦 What Gets Downloaded (Automatic - First Run Only)
+----------------------------------------------------
 
----
+*   **GPT-2 model** (~500MB) - for text generation
+    
+*   **Stable Diffusion v1.4** (~4GB) - for image generation
+    
+*   **Total**: ~4.5GB
+    
+*   **Time**: 5-10 minutes first run, then cached permanently
+    
 
-## 🎯 How to Demo This
+⚠️ Make sure you have at least **10GB free disk space**
 
-### For Presentation:
-1. **Start with a fun example**: "Two friends fighting over last biryani"
-2. **Show genre switching**: Try comedy vs horror-comedy
-3. **Take audience suggestions**: Let them give ideas live
-4. **Show the variety**: Generate 2-3 different scripts
+🎯 Two Generation Modes
+-----------------------
+
+### Mode 1: Template-Based (RECOMMENDED for demos)
+
+*   ✅ **100% coherent stories** - guaranteed logical flow
+    
+*   ✅ **Fast** - instant text generation
+    
+*   ✅ **Reliable** - perfect for presentations
+    
+*   ✅ **Genre-specific** - comedy, adventure, sci-fi patterns
+    
+*   **Use this for**: Live demos, presentations, guaranteed results
+    
+
+### Mode 2: AI Generation
+
+*   ✅ **More creative** - unique story variations
+    
+*   ⚠️ **Less predictable** - may produce disconnected panels
+    
+*   ✅ **Fallback safety** - uses templates if AI fails
+    
+*   **Use this for**: Experimentation, when you want surprise results
+    
+
+**Why Two Modes?**GPT-2 (124M parameters) sometimes struggles with story coherence across 4 panels. Template mode guarantees quality, while AI mode attempts creative generation with a safety net.
+
+💻 System Requirements
+----------------------
+
+### Minimum (CPU Mode):
+
+*   **RAM**: 8GB
+    
+*   **Disk**: 10GB free
+    
+*   **Processor**: Multi-core CPU
+    
+*   **Speed**: 2-5 minutes per comic (text + images)
+    
+
+### Recommended (GPU Mode):
+
+*   **RAM**: 16GB
+    
+*   **GPU**: NVIDIA GPU with 6GB+ VRAM (GTX 1060 or better)
+    
+*   **Disk**: 10GB free
+    
+*   **Speed**: 30-60 seconds per comic
+    
+
+**Note**: The app automatically detects your hardware and optimizes accordingly!
+
+🎯 How to Demo This
+-------------------
+
+### For Presentation (BEST STRATEGY):
+
+**Option A - Safe & Fast (Recommended)**:
+
+1.  Use **Template-Based mode** for guaranteed coherent stories
+    
+2.  **Disable images** during live demo (instant results!)
+    
+3.  Show **pre-generated examples** with images separately
+    
+4.  Explain: "Image generation takes 2-3 minutes on CPU, so here are examples I made earlier"
+    
+
+**Option B - Full Demo (If you have GPU)**:
+
+1.  Use **Template-Based mode**
+    
+2.  Generate 1 complete comic live (30-60 seconds on GPU)
+    
+3.  Take audience suggestions for ideas
+    
+4.  Show different genres and art styles
+    
+
+**Option C - Hybrid (Best of Both)**:
+
+1.  Start with text-only generation (instant, impressive)
+    
+2.  Show 2-3 pre-generated comics with images
+    
+3.  Explain the two-stage pipeline while generation runs in background
+    
 
 ### Best Demo Ideas:
-- College situations (relatable to judges)
-- Food fights
-- Exam prep struggles
-- Coding bugs at 3 AM
-- Family WhatsApp groups
 
----
+*   "A superhero who dresses like an ant"
+    
+*   "Programmer debugging code at 3 AM"
+    
+*   "Student trying to stay awake in class"
+    
+*   "Two friends fighting over last biryani"
+    
+*   "A cat who thinks it's a lion"
+    
 
-## 🚀 Enhancement Ideas (If You Have Time)
+🎨 Features & Customization
+---------------------------
 
-### Easy Adds:
-1. **Save/Export button** - Download script as text
-2. **Multiple outputs** - Generate 3 versions, user picks best
-3. **Character names** - Let user specify protagonist name
+### Story Settings:
 
-### Medium Adds:
-4. **Telugu mode** - Generate in Telugu script
-5. **Ratings system** - Users rate outputs (save to file)
-6. **Image placeholders** - Add stick figure illustrations
+*   **Generation Mode**: Template-Based vs AI Generation
+    
+*   **Genre**: comedy, adventure, sci-fi, romance, slice-of-life, horror-comedy
+    
+*   **Tone**: funny, wholesome, dramatic, sarcastic, absurd
+    
 
-### Advanced (Post-Demo):
-7. **Fine-tune GPT-2** on Reddit jokes or comedy scripts
-8. **Add DALL-E API** for actual comic panel generation
-9. **Speech bubbles** - Format output as dialogue
+### Image Settings:
 
----
+*   **Art Style**: comic book, cartoon, anime, pixel art, watercolor, sketch
+    
+*   **Enable/Disable Images**: Toggle for speed
+    
+*   **Quality Control**: Automatic prompt cleaning and optimization
+    
 
-## 🐛 Common Issues & Fixes
+### User Interface:
 
-### Issue: "Model too slow"
-**Fix**: You're already using GPT-2 (smallest). If still slow:
-- Reduce `max_length` from 300 to 200
-- Use `num_beams=1` in generation
+*   2x2 grid layout for panels
+    
+*   Random idea generator
+    
+*   Example suggestions
+    
+*   Expandable raw output view
+    
+*   Tips and troubleshooting guide
+    
 
-### Issue: "Output is weird/incomplete"
-**Fix**: Adjust generation parameters:
-```python
-temperature=0.9  # Higher = more creative
-top_p=0.9        # Lower = more focused
-```
+🔧 Technical Architecture
+-------------------------
 
-### Issue: "Not funny enough"
-**Fix**: 
-- Add "very funny" or "hilarious" to prompt
-- Try "absurd" tone
-- Use specific humor styles in prompt
+### Two-Stage Pipeline:
 
----
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   User Input → [Stage 1: Text Generation] → [Stage 2: Image Generation] → Display   `
 
-## 📊 What to Highlight in Presentation
+**Stage 1 - Text Generation (GPT-2)**:
 
-### Technical Skills:
-✅ Transformer models (GPT-2)
-✅ Prompt engineering
-✅ Text generation with constraints
-✅ Parameter tuning (temperature, top_p)
-✅ UI/UX with Streamlit
+*   Generates 4-panel story structure
+    
+*   Template mode OR AI generation
+    
+*   Automatic fallback for coherence
+    
+*   Output: 4 clean scene descriptions
+    
 
-### NLP Concepts:
-✅ Language modeling
-✅ Conditional generation
-✅ Structure in unstructured generation
-✅ Creative AI applications
+**Stage 2 - Image Generation (Stable Diffusion)**:
 
-### Practical Value:
-✅ Content creation tool
-✅ Writer's block helper
-✅ Social media content generator
-✅ Educational tool for story structure
-
----
-
-## 🎓 Explaining the Model
-
-**Simple Explanation:**
-"GPT-2 is trained on millions of internet texts. I give it a structured prompt with the 4-panel format, and it learns to fill in creative, coherent scenes that follow comic storytelling patterns."
-
-**Technical Explanation:**
-"Using autoregressive language modeling with GPT-2, I employ few-shot prompting to condition the model on the comic structure. Temperature sampling (0.8) balances creativity with coherence, while top-p nucleus sampling prevents repetitive outputs."
-
----
-
-## 💾 File Structure
-```
-comic-generator/
-├── comic_generator.py   # Main app
-├── requirements.txt     # Dependencies
-└── README.md           # This file
-```
-
----
-
-## ⚡ Quick Test Commands
-
-Test in Python directly (no UI):
-```python
-from transformers import pipeline
-
-generator = pipeline('text-generation', model='gpt2')
-
-prompt = """Write a funny 4-panel comic:
-Panel 1 (Setup): Student opens laptop to study
-Panel 2 (Conflict):"""
-
-output = generator(prompt, max_length=100, temperature=0.8)
-print(output[0]['generated_text'])
-```
-
----
-
-## 🏆 Why This Project Stands Out
-
-1. **Immediate entertainment value** - judges will laugh
-2. **Shows creativity + technical skills** - not just classification
-3. **Lightweight** - runs on any laptop
-4. **Extensible** - clear path to improvements
-5. **Unique** - not the usual sentiment analysis/chatbot
-
----
-
-Good luck with your presentation! 🎉
+*   Converts each text panel to image prompt
+    
+*   Cleans prompts (removes URLs, limits length)
+    
+*   Adds style keywords
+    
+*   Generates 512x512 images
+    
+*   Output: 4 matching illustrations
