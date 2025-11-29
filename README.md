@@ -18,12 +18,10 @@
 
 ### Step 1: Install Dependencies
 
-Plain
 ` pip install streamlit transformers torch diffusers accelerate safetensors pillow   `
 
 Or use the requirements file:
-
-Plain 
+ 
 `pip install -r requirements.txt`
 
 ### Step 2: Save the Code
@@ -31,8 +29,7 @@ Plain
 Save the main code as comic\_with\_images.py
 
 ### Step 3: Run the App
-
-Plain 
+ 
 `streamlit run comic_with_images.py`
 
 The app will open in your browser at http://localhost:8501
@@ -78,7 +75,9 @@ The app will open in your browser at http://localhost:8501
 *   **Use this for**: Experimentation, when you want surprise results
     
 
-**Why Two Modes?**GPT-2 (124M parameters) sometimes struggles with story coherence across 4 panels. Template mode guarantees quality, while AI mode attempts creative generation with a safety net.
+**Why Two Modes?**
+
+GPT-2 (124M parameters) sometimes struggles with story coherence across 4 panels. Template mode guarantees quality, while AI mode attempts creative generation with a safety net.
 
 💻 System Requirements
 ----------------------
@@ -195,7 +194,7 @@ The app will open in your browser at http://localhost:8501
 
 ### Two-Stage Pipeline:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   User Input → [Stage 1: Text Generation] → [Stage 2: Image Generation] → Display   `
+` User Input → [Stage 1: Text Generation] → [Stage 2: Image Generation] → Display `
 
 **Stage 1 - Text Generation (GPT-2)**:
 
