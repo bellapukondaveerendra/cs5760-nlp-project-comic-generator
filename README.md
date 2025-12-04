@@ -3,12 +3,14 @@
 
 **Group 1**
 
-Veerendra Goud Bellapukonda – 700772385 \n
-Mohan Vamsi Pusaala -  700773458 \n
+Veerendra Goud Bellapukonda – 700772385
 
-Priyatham Reddy Sama – 700773915 \n
+Mohan Vamsi Pusaala -  700773458
 
-Avinash Reddy K - 700771195 \n
+Priyatham Reddy Sama – 700773915
+
+Avinash Reddy K - 700771195
+
 -------------------------------------
 📋 Project Overview
 -------------------
