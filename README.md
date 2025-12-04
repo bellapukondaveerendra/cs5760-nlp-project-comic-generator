@@ -1,6 +1,15 @@
 🎬 Mini Movie Generator - Complete Setup Guide
 ==============================================
 
+**Group 1**
+
+Veerendra Goud Bellapukonda – 700772385
+Mohan Vamsi Pusaala -  700773458
+
+Priyatham Reddy Sama – 700773915
+
+Avinash Reddy K - 700771195
+-------------------------------------
 📋 Project Overview
 -------------------
 
